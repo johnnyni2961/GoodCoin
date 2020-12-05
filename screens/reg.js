@@ -38,7 +38,7 @@ export default class Reg extends React.Component  {
       
    
       
-      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#FFF', fontFamily:'FuturaH', marginTop:'15%', backgroundColor:'#6C63FF', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>{this.props.navigation.navigate('Login');}}>REGISTER</Text>
+      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#c0a188', fontFamily:'FuturaH', marginTop:'15%', backgroundColor:'#000', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>{this.props.navigation.navigate('Login');}}>REGISTER</Text>
       <Text style={{position:'relative',fontSize:15,margin:'auto', textAlign:'center', color:'#2D3748', fontFamily:'FuturaL', marginTop:'5%',alignSelf:'center'}} onPress={()=>this.props.navigation.navigate('Login')}>Already have an account? Login</Text>
     </View>
     );

@@ -26,11 +26,10 @@ export default class Splash extends React.Component  {
     if (this.state.fontsLoaded) {
     return (
     <View style={styles.container}>
-      <Image source={require('../assets/welcome.png')} style={styles.header}></Image>
-      <Text style={{position:'relative',fontSize:30,marginTop:'20%', textAlign:'center', color:'#364f6b', fontFamily:'FuturaH'}}>Welcome to AutoPlay</Text>
-      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#6C63FF', fontFamily:'FuturaL', marginTop:'2.5%', width:'70%',alignSelf:'center'}}>Jam to what everyone likes </Text>
+      <Image source={require('../assets/logo.png')} style={styles.header}></Image>
+     
       
-      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#FFF', fontFamily:'FuturaH', marginTop:'25%', backgroundColor:'#6C63FF', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('Login')}>LOGIN</Text>
+      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#000', fontFamily:'FuturaH', marginTop:'25%', backgroundColor:'#c0a188', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('Login')}>LOGIN</Text>
       <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#364f6b', fontFamily:'FuturaH', marginTop:'5%', backgroundColor:'#fff', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('Reg')}>REGISTER</Text>
       
     </View>
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
   container: {
     height:'100%',
     position:'relative',
-    backgroundColor:'#f5f5f5'
+    backgroundColor:'#000'
   },
   header:{
     height:'30%',
