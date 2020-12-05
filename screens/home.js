@@ -26,7 +26,12 @@ export default class Home extends React.Component  {
    
   }
 
-  
+  getData(){
+    return[
+      {name:'ABC',img:'https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/000/445/910/datas/original.png'}
+    ]
+    
+  }
 
   
 
