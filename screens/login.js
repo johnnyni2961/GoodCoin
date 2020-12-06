@@ -30,7 +30,7 @@ export default class Login extends React.Component  {
     return (
     <View style={styles.container}>
 
-      <Text style={{position:'relative',fontSize:60,marginTop:'20%', textAlign:'center', color:'#364f6b', fontFamily:'FuturaH'}}>Login</Text>
+      <Text style={{position:'relative',fontSize:60,marginTop:'20%', textAlign:'center', color:'#000', fontFamily:'FuturaH'}}>Login</Text>
      
       <TextInput placeholder='Email' style={{position:'relative',fontSize:20,margin:'auto', paddingLeft:'5%', color:'#798497', fontFamily:'FuturaL', marginTop:'25%', backgroundColor:'#EAEAEA',padding:'2.5%', width:'80%', borderRadius:5,alignSelf:'center'}}></TextInput>
       <TextInput placeholder='Password' secureTextEntry={true} style={{position:'relative',fontSize:20,margin:'auto', paddingLeft:'5%', color:'#798497', fontFamily:'FuturaL', marginTop:'5%', backgroundColor:'#EAEAEA',padding:'2.5%', width:'80%', borderRadius:5,alignSelf:'center'}}></TextInput>
