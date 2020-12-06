@@ -8,6 +8,7 @@ import Splash from './screens/splash';
 import Login from './screens/login';
 import Reg from './screens/reg';
 import Home from './screens/home';
+import Token from './screens/token';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,11 @@ function MyStack() {
       <Stack.Screen 
         name="Home" 
         component={Home} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Token" 
+        component={Token} 
         options={{ headerShown: false}} 
       />
     </Stack.Navigator>
