@@ -65,7 +65,7 @@ export default class Token extends React.Component  {
     <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Amount{"\n"}----------------------------------------------</Text>
     <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginBottom:'10%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>${this.state.token}</Text>
     </ScrollView></View>
-    <Text style={{position:'relative',fontSize:20,textAlign:'center', color:'#c0a188', fontFamily:'FuturaL',marginTop:'5%', marginBottom:'5%'}} >View History <Icon  name='history' color='#c0a188' size={15}></Icon></Text>
+    <Text style={{position:'relative',fontSize:20,textAlign:'center', color:'#c0a188', fontFamily:'FuturaL',marginTop:'5%', marginBottom:'5%'}}  onPress={()=>this.props.navigation.navigate('History')}>View History <Icon  name='history' color='#c0a188' size={15}></Icon></Text>
     <Image source={require('../assets/logo.png')} style={styles.header}></Image>
      
       

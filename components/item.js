@@ -3,87 +3,77 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function Item({ route,name,img}) {
+export default function Item({ route,txid,date,token, food, accomodation, services, supplies}) {
     const navigation = useNavigation();
     return (
-    <View style={styles.container}>
-         <Image source={{ uri: img }} style={styles.photo} />
-        <View style={styles.detailss}>  
-        <Text style={styles.name}>{name}</Text>
-       
-            <Text style={styles.description}>
-                
-            </Text>
-         
-        </View>
-       
-        
-    </View>
+        <View style={{ elevation:1, borderRadius:20, backgroundColor:'#0A0A0A', borderColor:'#c0a188', borderWidth:1, marginBottom:'2.5%'}}>
+
+ <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaH'}}>Token ID #{txid}                    <Text style={{color:'#c0a188', fontFamily:'FuturaL'}}>{date}</Text></Text>
+          <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Categories{"\n"}----------------------------------------------</Text>
+{food && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Food</Text>}
+{accomodation && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Accomodation</Text>}
+{services && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Services</Text>}
+{supplies && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Supplies</Text>}
+<Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Amount{"\n"}----------------------------------------------</Text>
+<Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginBottom:'10%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>${token}</Text>
+</View>
 )}
 
 
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-       flexDirection:'row',
-        padding: 10,
-        marginLeft:16,
-        marginRight:16,
-        marginTop: 5,
-        marginBottom: 5,
-        borderRadius: 10,
-        backgroundColor: '#FFF',
-        elevation:1,
-        alignSelf:'center',
-        justifyContent:'center',
-        width:'90%',
-        
-    },
-    name: {
-        fontSize: 20,
-        color: '#000',
-        fontFamily:'FuturaH',
-        marginTop: '-5%',
-        textAlignVertical:'center',
-    },
-     photo: {
-        height: 50,
-        width: 50,
-        justifyContent:'center',
+        height:'100%',
+        position:'relative',
+        backgroundColor:'#000'
+      },
+      left:{
+        height:'7%',
+        width:'7%',
+        top:'2.5%',
+        resizeMode:'contain',
+        left:'5%',
+        position:'absolute',
+      },
+      categories:{
+        fontFamily:'FuturaH', 
+        fontSize:15,
+        paddingVertical:'5%', 
         paddingHorizontal:'10%',
-        borderRadius:30,
-        marginTop:'2%',
-        resizeMode:'contain'
-        
-    },
-    detailss: {
-        flex: 1,
-        flexDirection: 'column',
-        marginLeft: 30,
-        marginTop:20,
-        marginRight: 30,
-        justifyContent: 'center',
-        
-    },
+        backgroundColor:'#c0a188', 
+        borderRadius:10,
+        textAlign:'center',
+        textAlignVertical:'center',
+        width:'46.5%',
+        marginHorizontal:'1.5%',
+        marginVertical:'1.5%',
+      },
+      token:{
+        fontFamily:'FuturaH', 
+        fontSize:20,
+        backgroundColor:'#c0a188', 
+        borderRadius:10,
+        textAlign:'center',
+        textAlignVertical:'center',
+        width:100,
+        height:100,
+        marginRight:10,
     
-    description: {
-        fontSize: 18,
-        fontFamily:'FuturaL',
-        color:'#6C63FF'
-    },
-   deets:{
-       borderRadius:30,
-       fontFamily:'FuturaH',
-       elevation:2,
-       backgroundColor:'#379DA6',
-       color:'#FFF',
-       fontSize:15,
-       padding:'5%',
-       textAlign:'center',
-       width:'50%',
-       left:'22.5%',
-       marginTop:'5%',
-       marginBottom:'7.5%',
-   }
+      },
+      right:{
+        height:'7%',
+        width:'7%',
+        top:'2.5%',
+        resizeMode:'contain',
+        right:'5%',
+        position:'absolute'
+      },
+      middle:{
+        height:'60%',
+        width:'60%',
+        marginTop:'5%',
+        resizeMode:'contain',
+        zIndex:3,
+        alignSelf:'center',
+      },
 });

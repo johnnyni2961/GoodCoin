@@ -15,8 +15,13 @@ const ItemList = ({ itemList}) => (
         <FlatList
                 data={itemList}
                 renderItem={({ item }) => <Item
-                    name={item.name}
-                    img={item.img}
+                txid={item.txid}
+                date={item.date}
+                token={item.token}
+                food={item.food}
+                services={item.services}
+                accomodation={item.accomodation}
+                supplies={item.supplies}
                     
                     
                 />}
