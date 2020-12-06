@@ -17,6 +17,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import TheTable from './table';
+import ProviderTable from './provider';
+import StatsTable from './stats';
+import { View } from 'react-native';
 
 const drawerWidth = 240;
 
@@ -64,6 +67,7 @@ function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
+  const [table, setTable] = React.useState(1);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -126,7 +130,10 @@ function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <TheTable/>
+        <StatsTable/>
+  <Divider/>
+<div style={{marginBottom:50}}></div>
+  <TheTable/>
       </main>
     </div>
   );

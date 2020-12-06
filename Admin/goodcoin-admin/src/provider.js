@@ -36,18 +36,6 @@ function createData(txid, name, category, value, price) {
     ],
   };
 }
-function _approve(){
-  axios.post('https://us-central1-aiot-fit-xlab.cloudfunctions.net/goodcoinprocessrequest', {"reqid" : "1", "status" : "approved"})
-  .then(res => {
-    console.log(res);
-  })
-  }
-  function _reject(){
-    axios.post('https://us-central1-aiot-fit-xlab.cloudfunctions.net/goodcoinprocessrequest', {"reqid" : "1", "status" : "rejected"})
-    .then(res => {
-      console.log(res);
-    })
-    }
 
 
 function Row(props) {
@@ -86,27 +74,27 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Usage</TableCell>
-                    <TableCell>Additional Info</TableCell>
-                    <TableCell align="right">Contact</TableCell>
-                    <TableCell align="right">Date</TableCell>
+                    <TableCell>Food</TableCell>
+                    <TableCell>Accommodation</TableCell>
+                    <TableCell align="right">Services</TableCell>
+                    <TableCell align="right">Supplies</TableCell>
+                    <TableCell align="right">General</TableCell>
+
                   </TableRow>
                   
                 </TableHead>
                 <TableBody>
                   {row.details.map((detailsRow) => (
-                    <TableRow key={detailsRow.usage}>
+                    <TableRow key={detailsRow.food}>
                       <TableCell component="th" scope="row">
-                        {detailsRow.usage}
+                        {detailsRow.accommodation}
                       </TableCell>
-                      <TableCell>{detailsRow.additional}</TableCell>
-                      <TableCell align="right">{detailsRow.contact}</TableCell>
+                      <TableCell>{detailsRow.services}</TableCell>
+                      <TableCell align="right">{detailsRow.supplies}</TableCell>
                       <TableCell align="right">
-                      {detailsRow.date}
+                      {detailsRow.general}
                       </TableCell>
-                    {!approve && !reject && <Button variant="contained" color="primary" onClick={()=>{_approve();setApprove(!approve);}}>Approve</Button>}
-                    {!approve && !reject &&  <Button variant="contained" color="secondary" onClick={()=>{_reject();setReject(!reject);}}>Reject</Button>}
-                    {approve && <Button variant="contained" color="normal" >Approved</Button>}
+                   
                     </TableRow>
                   ))}
                 </TableBody>
@@ -148,10 +136,9 @@ export default function CollapsibleTable() {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Request ID</TableCell>
-            <TableCell >Full Name</TableCell>
-            <TableCell align="right">Category</TableCell>
-            <TableCell align="right">Value</TableCell>
+            <TableCell>Provider ID</TableCell>
+            <TableCell >Provider Name</TableCell>
+            <TableCell align="right">Tokens</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
