@@ -10,6 +10,12 @@ import Reg from './screens/reg';
 import Home from './screens/home';
 import Token from './screens/token';
 import History from './screens/history';
+import TLogin from './screens/tokenuser/login';
+import TReg from './screens/tokenuser/reg';
+import THome from './screens/tokenuser/home';
+import UToken from './screens/tokenuser/token';
+import THistory from './screens/tokenuser/history';
+import Wallet from './screens/tokenuser/wallet';
 
 const Stack = createStackNavigator();
 
@@ -44,6 +50,36 @@ function MyStack() {
       <Stack.Screen 
         name="History" 
         component={History} 
+        options={{ headerShown: false}} 
+      />
+       <Stack.Screen 
+        name="TLogin" 
+        component={TLogin} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="TReg" 
+        component={TReg} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="THome" 
+        component={THome} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="UToken" 
+        component={UToken} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="THistory" 
+        component={THistory} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Wallet" 
+        component={Wallet} 
         options={{ headerShown: false}} 
       />
     </Stack.Navigator>

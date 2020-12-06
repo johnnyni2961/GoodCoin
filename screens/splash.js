@@ -29,9 +29,9 @@ export default class Splash extends React.Component  {
       <Image source={require('../assets/logo.png')} style={styles.header}></Image>
      
       
-      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#000', fontFamily:'FuturaH', marginTop:'25%', backgroundColor:'#c0a188', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('Login')}>LOGIN</Text>
-      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#364f6b', fontFamily:'FuturaH', marginTop:'5%', backgroundColor:'#fff', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('Reg')}>REGISTER</Text>
-      
+      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#000', fontFamily:'FuturaH', marginTop:'25%', backgroundColor:'#c0a188', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('TLogin')}>LOGIN</Text>
+      <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#364f6b', fontFamily:'FuturaH', marginTop:'5%', backgroundColor:'#fff', padding:'5%', width:'70%', borderRadius:10, alignSelf:'center', elevation:1}} onPress={()=>this.props.navigation.navigate('TReg')}>REGISTER</Text>
+      <Text style={{position:'relative',fontSize:15,margin:'auto', textAlign:'center', color:'#c0a188', fontFamily:'FuturaL', marginTop:'5%',alignSelf:'center'}} onPress={()=>this.props.navigation.navigate('Login')}>Would you like to donate? Login here</Text>
     </View>
     );
     }

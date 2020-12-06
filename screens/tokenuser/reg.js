@@ -5,11 +5,11 @@ import * as Font from 'expo-font';
 import { TextInput } from 'react-native-gesture-handler';
 
 let customFonts  = {
-    'FuturaH': require('../assets/fonts/futurah.ttf'),
-    'FuturaL': require('../assets/fonts/futural.ttf'),
+    'FuturaH': require('../../assets/fonts/futurah.ttf'),
+    'FuturaL': require('../../assets/fonts/futural.ttf'),
   };
 
-export default class Reg extends React.Component  {
+export default class TReg extends React.Component  {
   state = {
     fontsLoaded: false,
   };
