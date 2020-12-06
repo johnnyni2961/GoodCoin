@@ -15,7 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Button } from '@material-ui/core';
-
+import axios from 'axios';
 const useRowStyles = makeStyles({
   root: {
     '& > *': {
@@ -36,10 +36,26 @@ function createData(txid, name, category, value, price) {
     ],
   };
 }
+function _approve(){
+  axios.post('https://us-central1-aiot-fit-xlab.cloudfunctions.net/goodcoinprocessrequest', {"reqid" : "1", "status" : "approved"})
+  .then(res => {
+    console.log(res);
+  })
+  }
+  function _reject(){
+    axios.post('https://us-central1-aiot-fit-xlab.cloudfunctions.net/goodcoinprocessrequest', {"reqid" : "1", "status" : "rejected"})
+    .then(res => {
+      console.log(res);
+    })
+    }
+
 
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+  const [approve, setApprove] = React.useState(false);
+  const [reject, setReject] = React.useState(false);
+
   const classes = useRowStyles();
 
   return (
@@ -86,8 +102,9 @@ function Row(props) {
                       <TableCell align="right">
                       {detailsRow.date}
                       </TableCell>
-                      <Button variant="contained" color="primary">Approve</Button>
-                      <Button variant="contained" color="secondary">Reject</Button>
+                    {!approve && !reject && <Button variant="contained" color="primary" onClick={()=>{_approve();setApprove(!approve);}}>Approve</Button>}
+                    {!approve && !reject &&  <Button variant="contained" color="secondary" onClick={()=>{_reject();setReject(!reject);}}>Reject</Button>}
+                    {approve && <Button variant="contained" color="normal" >Approved</Button>}
                     </TableRow>
                   ))}
                 </TableBody>
