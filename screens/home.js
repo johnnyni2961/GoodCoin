@@ -20,6 +20,11 @@ export default class Home extends React.Component  {
     name: 'Ebtesam',
     token: 0,
     category:'Select a category',
+    food:0,
+    supplies:0,
+    accommodation:0,
+    general:0,
+    services:0,
   };
 
   async _loadFontsAsync() {
@@ -46,6 +51,7 @@ export default class Home extends React.Component  {
       </View>
       <Text style={{position:'relative',fontSize:20,marginTop:'10%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaH'}}>Home                                              <Icon  name='heart' type='font-awesome' color='#fff'></Icon> <Icon onPress={()=>this.props.navigation.navigate('History')}  name='history' color='#fff'></Icon></Text>
       <Text style={{position:'relative',fontSize:30,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Welcome,<Text style={{fontFamily:'FuturaH', color:'#c0a188'}}> {this.state.name}</Text></Text>
+      <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL', overflow:'scroll'}}>Food:${this.state.food}      Accommodation:${this.state.accommodation}      Services:${this.state.services}           Supplies:${this.state.supplies}      General:${this.state.general}</Text>
       <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select a category to help a person in need</Text>
       <FlatList style={{height:10, marginBottom:10}}
                 horizontal
