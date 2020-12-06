@@ -13,16 +13,12 @@ let customFonts  = {
   'FuturaL': require('../../assets/fonts/futural.ttf'),
 };
 const tokenValues = [10,20,50,100,200,500,1000,2000,5000]
-
+const categories = ['Food','Accommodation','Services','Supplies','General']
 export default class THome extends React.Component  {
   state = {
     fontsLoaded: false,
     name: 'Ebtesam',
-    food: false,
-    accomodation:false,
-    services: false,
-    supplies: false,
-    general:false,
+    category:'Select a category',
     token: 0,
     reason: '',
     details: '',
@@ -53,13 +49,16 @@ export default class THome extends React.Component  {
       </View>
       <Text style={{position:'relative',fontSize:20,marginTop:'10%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaH'}}>Submit your Request                          <Icon  name='wallet' type='ant-design' color='#fff' onPress={()=>this.props.navigation.navigate('Wallet')}></Icon> <Icon onPress={()=>this.props.navigation.navigate('THistory')}  name='history' color='#fff'></Icon></Text>
     <ScrollView>
-      <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select categories of token you need:</Text>
-    <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-    <Text style={styles.categories} onPress={()=>{this.setState({food:!this.state.food})}}>Food {"\n"} {this.state.food && <Icon name='check-circle' size={30}></Icon>} </Text> 
-        <Text style={styles.categories} onPress={()=>{this.setState({accomodation:!this.state.accomodation})}}>Accomodation {this.state.accomodation && <Icon name='check-circle' size={30}></Icon>}</Text>
-        <Text style={styles.categories} onPress={()=>{this.setState({services:!this.state.services})}}>Services {"\n"} {this.state.services && <Icon name='check-circle' size={30}></Icon>}</Text>
-        <Text style={styles.categories} onPress={()=>{this.setState({supplies:!this.state.supplies})}}>Supplies {"\n"} {this.state.supplies && <Icon name='check-circle' size={30}></Icon>}</Text>
-       </View>
+      <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select a category of token you need:</Text>
+      <FlatList style={{height:120}}
+                horizontal
+                data={categories}
+                renderItem={({ item }) =>  <Text style={styles.categories} onPress={()=>this.setState({category:item})}>{item}</Text>
+                    
+                    
+                }
+            />
+        <Text style={{position:'relative',fontSize:20,marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>{this.state.category}</Text>
        <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Enter token value</Text>
       
        <TextInput placeholder={"$0"} id={"value"} style={{fontFamily:'FuturaH', fontSize:30, color:'#c0a188', borderWidth:1, borderColor:'#c0a188', borderRadius:10, paddingHorizontal:'5%', width:'50%', marginVertical:'2.5%', marginHorizontal:'2.5%'}} onChangeText={(value)=>this.setState({token:value})}></TextInput>
@@ -101,15 +100,13 @@ const styles = StyleSheet.create({
   categories:{
     fontFamily:'FuturaH', 
     fontSize:15,
-    paddingVertical:'5%', 
-    paddingHorizontal:'10%',
     backgroundColor:'#c0a188', 
     borderRadius:10,
     textAlign:'center',
     textAlignVertical:'center',
-    width:'46.5%',
-    marginHorizontal:'1.5%',
-    marginVertical:'1.5%',
+    width:150,
+    height:100,
+    marginRight:10,
   },
   token:{
     fontFamily:'FuturaH', 

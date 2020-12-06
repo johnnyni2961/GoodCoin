@@ -12,16 +12,14 @@ let customFonts  = {
   'FuturaL': require('../assets/fonts/futural.ttf'),
 };
 const tokenValues = [10,20,50,100,200,500,1000,2000,5000]
+const categories = ['Food','Accommodation','Services','Supplies','General']
 
 export default class Home extends React.Component  {
   state = {
     fontsLoaded: false,
     name: 'Ebtesam',
-    food: false,
-    accommodation:false,
-    services: false,
-    supplies: false,
     token: 0,
+    category:'Select a category',
   };
 
   async _loadFontsAsync() {
@@ -34,10 +32,7 @@ export default class Home extends React.Component  {
    
   }
 
-  
-  _setState(category){
-    
-  }
+
   
 
   render(){
@@ -51,14 +46,16 @@ export default class Home extends React.Component  {
       </View>
       <Text style={{position:'relative',fontSize:20,marginTop:'10%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaH'}}>Home                                              <Icon  name='heart' type='font-awesome' color='#fff'></Icon> <Icon onPress={()=>this.props.navigation.navigate('History')}  name='history' color='#fff'></Icon></Text>
       <Text style={{position:'relative',fontSize:30,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Welcome,<Text style={{fontFamily:'FuturaH', color:'#c0a188'}}> {this.state.name}</Text></Text>
-      <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select a few categories to help a person in need</Text>
-    <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-    <Text style={styles.categories} onPress={()=>{this.setState({food:!this.state.food})}}>Food {"\n"} {this.state.food && <Icon name='check-circle' size={30}></Icon>} </Text> 
-        <Text style={styles.categories} onPress={()=>{this.setState({accommodation:!this.state.accommodation})}}>accommodation {this.state.accommodation && <Icon name='check-circle' size={30}></Icon>}</Text>
-        <Text style={styles.categories} onPress={()=>{this.setState({services:!this.state.services})}}>Services {"\n"} {this.state.services && <Icon name='check-circle' size={30}></Icon>}</Text>
-        <Text style={styles.categories} onPress={()=>{this.setState({supplies:!this.state.supplies})}}>Supplies {"\n"} {this.state.supplies && <Icon name='check-circle' size={30}></Icon>}</Text>
-       </View>
-       <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select token value</Text>
+      <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select a category to help a person in need</Text>
+      <FlatList style={{height:10, marginBottom:10}}
+                horizontal
+                data={categories}
+                renderItem={({ item }) =>  <Text style={styles.categories} onPress={()=>this.setState({category:item})}>{item}</Text>
+                    
+                    
+                }
+            />
+       <Text style={{position:'relative',fontSize:20,marginTop:'2.5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Select token value</Text>
       
        <FlatList style={{height:10, marginBottom:10}}
                 horizontal
@@ -72,10 +69,7 @@ export default class Home extends React.Component  {
             <ScrollView>
      <Text style={{position:'relative',fontSize:20,marginTop:'5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaH'}}>Goodcoin Selection Summary</Text>
               <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Categories{"\n"}----------------------------------------------</Text>
-    {this.state.food && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Food</Text>}
-    {this.state.accommodation && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Accommodation</Text>}
-    {this.state.services && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Services</Text>}
-    {this.state.supplies && <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>Supplies</Text>}
+    <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>{this.state.category}</Text>
     <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginLeft:'5%', textAlign:'left', color:'#fff', fontFamily:'FuturaL'}}>Amount{"\n"}----------------------------------------------</Text>
     <Text style={{position:'relative',fontSize:20,marginTop:'1.5%',marginBottom:'10%',marginLeft:'5%', textAlign:'left', color:'#c0a188', fontFamily:'FuturaL'}}>${this.state.token}</Text>
     </ScrollView></View>
@@ -110,15 +104,13 @@ const styles = StyleSheet.create({
   categories:{
     fontFamily:'FuturaH', 
     fontSize:15,
-    paddingVertical:'5%', 
-    paddingHorizontal:'10%',
     backgroundColor:'#c0a188', 
     borderRadius:10,
     textAlign:'center',
     textAlignVertical:'center',
-    width:'46.5%',
-    marginHorizontal:'1.5%',
-    marginVertical:'1.5%',
+    width:150,
+    height:100,
+    marginRight:10,
   },
   token:{
     fontFamily:'FuturaH', 
